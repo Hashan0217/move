@@ -6,15 +6,6 @@ const CopyPlugin = require("copy-webpack-plugin");
 module.exports = {
 	mode: "development",
 	entry: "./src/main.js",
-	devServer: {
-		proxy: {
-			"/api": {
-				// 当请求地址以 api 开头时，代理到另一个地址
-				target: "http://study.duyiedu.com", // 代理的目标地址
-				changeOrigin: true, // 更改请求头中的host，无须深究，为避免出问题，最好写上
-			},
-		},
-	},
 	output: {
 		path: path.resolve(__dirname, "./dist"),
 		filename: "js/app-[contenthash:5].js",
@@ -26,6 +17,13 @@ module.exports = {
 	devtool: "source-map",
 	devServer: {
 		port: 8080,
+		proxy: {
+			"/api": {
+				// 当请求地址以 api 开头时，代理到另一个地址
+				target: "https://study.duyiedu.com", // 代理的目标地址
+				changeOrigin: true, // 更改请求头中的host，无须深究，为避免出问题，最好写上
+			},
+		},
 	},
 	resolve: {
 		alias: {
