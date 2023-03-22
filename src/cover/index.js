@@ -6,7 +6,10 @@ function init() {
 	/**
 	 * 初始化页面
 	 */
-	const container = $("<div>").addClass(styles.container).appendTo("#app");
+	const container = $("<div>")
+		.addClass(styles.container)
+		.prop("id", "box")
+		.appendTo("#app");
 	const video = $("<video>")
 		.prop("autoplay", true)
 		.prop("loop", true)
